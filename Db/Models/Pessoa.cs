@@ -1,4 +1,5 @@
-﻿
+﻿using System.ComponentModel.DataAnnotations;
+
 namespace Db.Models
 {
     public class Pessoa
@@ -9,11 +10,23 @@ namespace Db.Models
             Admin,
             User
         }
-        public int id { get; set; }
-        public required string name { get; set; }
-        public required string email { get; set; }
-        public required string password { get; set; }
+
+        public int Id { get; set; }
+
+        [Required]
+        [MaxLength(100)]
+        public string Name { get; set; } = string.Empty;
+
+        [Required]
+        [EmailAddress]
+        public string Email { get; set; } = string.Empty;
+
+        [Required]
+        [MinLength(6)]
+        public string Password { get; set; } = string.Empty;
+
         public UserRole Role { get; set; }
-        public required ICollection<Task> Tasks { get; set; }
+
+        public ICollection<Task> Tasks { get; set; } = new List<Task>();
     }
 }

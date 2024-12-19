@@ -2,6 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using Db;
+using Db.Interfaces;
+using Db.Repositories;
 
 namespace Api
 {
@@ -10,6 +12,9 @@ namespace Api
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            // Adiciona o Repository Genérico ao contêiner de serviços
+            builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
             // Add services to the container.
 
