@@ -18,7 +18,7 @@ namespace Db.Models
                 {
                     Name = "admin",
                     Email = "admin@example.com",
-                    Password = "root", // TODO Use hashing para senhas
+                    Password = "root", // TODO: hashing para senhas
                     Role = Pessoa.UserRole.Admin
                 };
 

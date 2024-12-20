@@ -15,6 +15,8 @@ namespace Api
             var builder = WebApplication.CreateBuilder(args);
                         
             builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            builder.Services.AddScoped<ITaskRepository, TaskRepository>();
+
 
             // Add services to the container.
 
