@@ -5,7 +5,6 @@
         public int Id { get; set; }
         public required string Nome { get; set; }
         public required string Categoria { get; set; }
-        public int UserId { get; set; }
-        public required Pessoa Pessoa { get; set; }
+        public int UserId { get; set; } 
     }
 }

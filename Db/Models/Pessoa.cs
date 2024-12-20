@@ -10,7 +10,6 @@ namespace Db.Models
             Admin,
             User
         }
-
         public int Id { get; set; }
 
         [Required]
@@ -26,7 +25,5 @@ namespace Db.Models
         public string Password { get; set; } = string.Empty;
 
         public UserRole Role { get; set; }
-
-        public ICollection<Task> Tasks { get; set; } = new List<Task>();
     }
 }
