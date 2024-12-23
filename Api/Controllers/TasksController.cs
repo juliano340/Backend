@@ -70,11 +70,19 @@ namespace Api.Controllers
             var userTasks = await _taskRepository.GetByUserIdAsync(userId);
 
             if (!userTasks.Any())
-            {
-                return NotFound($"Nenhuma tarefa encontrada para o usuário com ID {userId}.");
-            }
-
+                return NotFound($"Nenhuma tarefa encontrada para o usuário com ID {userId}.");   
+            
             return Ok(userTasks);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteTask(int id)
+        {
+            var existingTask = await _genericTaskRepository.GetByIdAsync(id);
+            if (existingTask == null)
+                return NotFound("Tarefa não encontrada.");
+            await _genericTaskRepository.DeleteAsync(existingTask.Id);
+                return NoContent();
         }
 
     }
